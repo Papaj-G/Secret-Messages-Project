@@ -1,2 +1,2 @@
-import { someText } from "../Secrets/src/app.js";
-console.log(someText());
+import { secretMessages } from "../Secrets/src/app.js";
+console.log(secretMessages());
