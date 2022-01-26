@@ -19,19 +19,24 @@ function secretMessages() {
 		switch (chosenCipher) {
 			case CaesarsCipher:
 				writeLine("You chose Caesars Cipher");
-				userMessage = readlineSync.question("What is your string you want to encrypt?");
+				userMessage = readlineSync.question("What is your string you want to encrypt? ");
 				userMessageEncrypted = userMessage.EncryptUsing(chosenCipher);
+				writeLine('You entered = "' + userMessage + '"');
+				writeLine('Results in = "' + userMessageEncrypted + '"');
 				break;
 			case MorseCode:
 				writeLine("You chose Morse Code");
-				userMessage = readlineSync.question("What is your string you want to encrypt?");
+				userMessage = readlineSync.question("What is your string you want to encrypt? ");
 				userMessageEncrypted = userMessage.EncryptUsing(chosenCipher);
+				writeLine('You entered = "' + userMessage + '"');
+				writeLine('Results in = "' + userMessageEncrypted + '"');
 				break;
 			case Reverse:
 				writeLine("You chose Reverse");
-				userMessage = readlineSync.question("What is your string you want to encrypt?");
+				userMessage = readlineSync.question("What is your string you want to encrypt? ");
 				userMessageEncrypted = userMessage.EncryptUsing(chosenCipher);
-				writeLine(userMessageEncrypted);
+				writeLine('You entered = "' + userMessage + '"');
+				writeLine('Results in = "' + userMessageEncrypted + '"');
 				break;
 			case Quit:
 				writeLine("You chose to quit ! BYE");
@@ -55,23 +60,75 @@ String.prototype.EncryptUsing = function (cipher) {
 			writeLine("invalid cipher choice, no change occured");
 			return this;
 	}
-	function encryptUsingCaesars(message) {
-		return message;
-	}
-	function encryptUsingMorseCode(message) {
-		return message;
-	}
-	function encryptUsingReverse(message) {
-		var words = message.split(" ");
-		writeLine(words);
-		var newOrder = [];
-		for (var word of words) {
-			writeLine(word);
-			newOrder.push(word.split("").reverse().join(""));
-		}
-		writeLine(newOrder);
-		return newOrder.join(" ");
-	}
-	export { encryptUsingCaesars, encryptUsingMorseCode, encryptUsingReverse };
 };
-export { EncryptUsing, secretMessages };
+function encryptUsingCaesars(message) {
+	var encryptedMessage = [];
+	// offset used for shifting characters in alphabet, using number 13 makes the encryption and decryption work using the same function.
+	var offset = 13;
+	//initialise alphabet array
+	var alphabet = [
+		"a",
+		"b",
+		"c",
+		"d",
+		"e",
+		"f",
+		"g",
+		"h",
+		"i",
+		"j",
+		"k",
+		"l",
+		"m",
+		"n",
+		"o",
+		"p",
+		"q",
+		"r",
+		"s",
+		"t",
+		"u",
+		"v",
+		"w",
+		"x",
+		"y",
+		"z",
+	];
+	//clone alphabet
+	var alphabetEncrypted = alphabet.slice();
+	//shift cloned alphabet by offset to create translation key
+	for (var i = 0; i < offset; i++) {
+		alphabetEncrypted.push(alphabetEncrypted.shift());
+	}
+	// get words of sentence
+	var words = message.split(" ");
+	//for each word in sentance
+	for (var word of words) {
+		//create new word
+		var newWord = "";
+		//for each letter in word
+		for (var letter of word) {
+			//get index of letter in alphabet
+			var index = alphabet.indexOf(letter);
+			writeLine(index);
+			//using index get same index location in encrypted alphabet and concat letter to new word
+			newWord += alphabetEncrypted[index];
+		}
+		//add encrypted word to encrypted string array
+		encryptedMessage.push(newWord);
+	}
+	//retrun and join words in encrypted word array with spaces and return as string
+	return encryptedMessage.join(" ");
+}
+function encryptUsingMorseCode(message) {
+	return message;
+}
+function encryptUsingReverse(message) {
+	var words = message.split(" ");
+	var newOrder = [];
+	for (var word of words) {
+		newOrder.push(word.split("").reverse().join(""));
+	}
+	return newOrder.join(" ");
+}
+export { secretMessages, encryptUsingCaesars, encryptUsingMorseCode, encryptUsingReverse };
