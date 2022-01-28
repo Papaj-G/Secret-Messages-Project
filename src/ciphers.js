@@ -1,3 +1,5 @@
+import { reverseString } from "./utils.js";
+
 export function encryptUsingCaesars(message, offset) {
 	var encryptedMessage = [];
 	//initialise alphabet array
@@ -116,10 +118,8 @@ export function encryptUsingMorseCode(message) {
 	return encryptedMessage.join(" | ");
 }
 export function encryptUsingReverse(message) {
-	var words = message.split(" ");
-	var newOrder = [];
-	for (var word of words) {
-		newOrder.push(word.split("").reverse().join(""));
-	}
-	return newOrder.join(" ");
+	return message
+		.split(" ")
+		.map((word) => reverseString(word))
+		.join(" ");
 }
