@@ -112,7 +112,6 @@ function encryptUsingCaesars(message, offset) {
 		for (var letter of word) {
 			//get index of letter in alphabet
 			var index = alphabet.indexOf(letter);
-			writeLine(index);
 			//using index get same index location in encrypted alphabet and concat letter to new word
 			newWord += alphabetEncrypted[index];
 		}
