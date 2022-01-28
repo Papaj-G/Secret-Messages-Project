@@ -1,0 +1,23 @@
+h1 {
+	border: 2px solid powderblue;
+	padding: 5px;
+	border-radius: 2em;
+}
+p {
+	border: 2px solid powderblue;
+	padding: 5px;
+	border-radius: 2em;
+}
+div {
+	display: block;
+}
+select {
+	border: 2px solid powderblue;
+	padding: 5px;
+	border-radius: 2em;
+}
+label {
+	border: 2px solid powderblue;
+	padding: 5px;
+	border-radius: 2em;
+}
