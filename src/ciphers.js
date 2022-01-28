@@ -57,6 +57,7 @@ export function encryptUsingMorseCode(message) {
 	//retrun and join words in encrypted word array with spaces and return as string
 	return encryptedMessage.join(" | ");
 }
+// little change
 export function encryptUsingReverse(message) {
 	return message
 		.split(" ")
