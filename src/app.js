@@ -20,9 +20,11 @@ function secretMessages() {
 			case CaesarsCipher:
 				writeLine("You chose Caesars Cipher");
 				userMessage = readlineSync.question("What is your string you want to encrypt? ");
-				userMessageEncrypted = userMessage.EncryptUsing(chosenCipher);
+				var offset = readlineSync.question("What is the offset? ");
+				userMessageEncrypted = encryptUsingCaesars(userMessage, offset);
 				writeLine('You entered = "' + userMessage + '"');
 				writeLine('Results in = "' + userMessageEncrypted + '"');
+				readlineSync.question("Press enter to continue . . .");
 				break;
 			case MorseCode:
 				writeLine("You chose Morse Code");
@@ -30,6 +32,7 @@ function secretMessages() {
 				userMessageEncrypted = userMessage.EncryptUsing(chosenCipher);
 				writeLine('You entered = "' + userMessage + '"');
 				writeLine('Results in = "' + userMessageEncrypted + '"');
+				readlineSync.question("Press enter to continue . . .");
 				break;
 			case Reverse:
 				writeLine("You chose Reverse");
@@ -37,6 +40,7 @@ function secretMessages() {
 				userMessageEncrypted = userMessage.EncryptUsing(chosenCipher);
 				writeLine('You entered = "' + userMessage + '"');
 				writeLine('Results in = "' + userMessageEncrypted + '"');
+				readlineSync.question("Press enter to continue . . .");
 				break;
 			case Quit:
 				writeLine("You chose to quit ! BYE");
@@ -61,10 +65,8 @@ String.prototype.EncryptUsing = function (cipher) {
 			return this;
 	}
 };
-function encryptUsingCaesars(message) {
+function encryptUsingCaesars(message, offset) {
 	var encryptedMessage = [];
-	// offset used for shifting characters in alphabet, using number 13 makes the encryption and decryption work using the same function.
-	var offset = 13;
 	//initialise alphabet array
 	var alphabet = [
 		"a",
