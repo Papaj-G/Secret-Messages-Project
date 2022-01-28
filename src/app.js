@@ -121,7 +121,65 @@ function encryptUsingCaesars(message) {
 	return encryptedMessage.join(" ");
 }
 function encryptUsingMorseCode(message) {
-	return message;
+	var encryptedMessage = [];
+	//initialise alphabet array
+	var morse = {
+		a: ".-",
+		b: "-...",
+		c: "-.-.",
+		d: "-..",
+		e: ".",
+		f: "..-.",
+		g: "--.",
+		h: "....",
+		i: "..",
+		j: ".---",
+		k: "-.-",
+		l: ".-..",
+		m: "--",
+		n: "-.",
+		o: "---",
+		p: ".--.",
+		q: "--.-",
+		r: ".-.",
+		s: "...",
+		t: "-",
+		u: "..-",
+		v: "...-",
+		w: ".--",
+		x: "-..-",
+		y: "-.--",
+		z: "--..",
+		1: ".----",
+		2: "..---",
+		3: "...--",
+		4: "....-",
+		5: ".....",
+		6: "-....",
+		7: "--...",
+		8: "---..",
+		9: "----.",
+		0: "-----",
+	};
+
+	// get words of sentence
+	var words = message.split(" ");
+	//for each word in sentance
+	for (var word of words) {
+		//create new word
+		var newWord = [];
+		//for each letter in word
+		for (var letter of word) {
+			//get index of letter in alphabet
+
+			//using index get same index location in encrypted alphabet and concat letter to new word
+			newWord.push(morse[letter]);
+		}
+		//add encrypted word to encrypted string array
+		encryptedMessage.push(newWord.join(" "));
+	}
+	//retrun and join words in encrypted word array with spaces and return as string
+	return encryptedMessage.join(" | ");
 }
 function encryptUsingReverse(message) {
 	var words = message.split(" ");
@@ -131,4 +189,4 @@ function encryptUsingReverse(message) {
 	}
 	return newOrder.join(" ");
 }
-export { secretMessages, encryptUsingCaesars, encryptUsingMorseCode, encryptUsingReverse };
+export { encryptUsingReverse, encryptUsingCaesars, encryptUsingMorseCode, secretMessages };
