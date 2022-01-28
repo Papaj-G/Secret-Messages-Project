@@ -22,30 +22,24 @@ function secretMessages() {
 				userMessage = readlineSync.question("What is your string you want to encrypt? ");
 				var offset = readlineSync.question("What is the offset? ");
 				userMessageEncrypted = encryptUsingCaesars(userMessage, offset);
-				writeLine('You entered = "' + userMessage + '"');
-				writeLine('Results in = "' + userMessageEncrypted + '"');
-				readlineSync.question("Press enter to continue . . .");
 				break;
 			case MorseCode:
 				writeLine("You chose Morse Code");
 				userMessage = readlineSync.question("What is your string you want to encrypt? ");
 				userMessageEncrypted = userMessage.EncryptUsing(chosenCipher);
-				writeLine('You entered = "' + userMessage + '"');
-				writeLine('Results in = "' + userMessageEncrypted + '"');
-				readlineSync.question("Press enter to continue . . .");
 				break;
 			case Reverse:
 				writeLine("You chose Reverse");
 				userMessage = readlineSync.question("What is your string you want to encrypt? ");
 				userMessageEncrypted = userMessage.EncryptUsing(chosenCipher);
-				writeLine('You entered = "' + userMessage + '"');
-				writeLine('Results in = "' + userMessageEncrypted + '"');
-				readlineSync.question("Press enter to continue . . .");
 				break;
 			case Quit:
 				writeLine("You chose to quit ! BYE");
 				break game;
 		}
+		writeLine('Your message = "' + userMessage + '"');
+		writeLine('Your message encrypted = "' + userMessageEncrypted + '"');
+		readlineSync.question("Press enter to continue . . .");
 	}
 }
 function writeLine(string) {
