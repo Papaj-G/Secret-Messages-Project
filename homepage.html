@@ -4,23 +4,32 @@
 		<title>Pats Code</title>
 		<link rel="stylesheet" href="styles.css" />
 	</head>
-	<script></script>
 	<body>
-		<h1>Encryption Code</h1>
-		<p>This website takes your input and encrypts using your chosen cipher</p>
-		<form action="">
-			<label for="">Input</label>
-			<input type="text" id="encryptionInput" name="input" /><br />
-			<label for="">Input</label>
-
-			<input type="checkbox" id="encryptionInput" name="input" /><br />
-			<label for="">Cipher</label>
-			<select name="encryption" id="encryption">
-				<option value="caesarCipher">Caesar Cipher</option>
-				<option value="morseCode">Morse Code</option>
-				<option value="reverse">Reverse</option>
-			</select>
-		</form>
-		
+		<div class="column">
+			<div class="row">
+				<div class="column">
+					<label>Input</label>
+					<textarea name="" id="input" cols="30" rows="10" autofocus></textarea>
+				</div>
+				<div class="column">
+					<label>Output</label>
+					<textarea name="" id="output" cols="30" rows="10" disabled></textarea>
+				</div>
+			</div>
+			<div class="row">
+				<fieldset class="row">
+					<legend>Ciphers</legend>
+					<input type="radio" name="cipher" id="radio_Caesar" />
+					<label>Ceasar's Cipher</label>
+					<input type="radio" name="cipher" id="radio_Morse" />
+					<label>Morse Code</label>
+					<input type="radio" name="cipher" id="radio_Reverse" />
+					<label>Reverse</label>
+				</fieldset>
+				<button type="submit" id="btnEncrypt">Encrypt</button>
+			</div>
+		</div>
 	</body>
+	<script type="module" src="./play.js"></script>
 </html>
+<!-- 642342 -->

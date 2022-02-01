@@ -1,0 +1,58 @@
+/* fonts */
+h1,
+textarea,
+label,
+input,
+legend {
+	font-family: "Courier New", Courier, monospace;
+}
+
+/* Margins */
+input,
+textarea,
+fieldset,
+button,
+label,
+legend {
+	margin: 5px;
+}
+/* Size */
+div {
+	width: 100%;
+}
+fieldset {
+	width: 75%;
+}
+button {
+	margin-top: 13px;
+	width: 25%;
+}
+
+.row,
+.column {
+	display: flex;
+}
+.row {
+	flex-direction: row;
+}
+.column {
+	flex-direction: column;
+}
+@media screen and (max-width: 480px) {
+	.row {
+		flex-direction: column;
+	}
+	textarea {
+		height: fit-content;
+		width: auto;
+	}
+	fieldset {
+		width: auto;
+	}
+	button {
+		width: 100%;
+		align-self: baseline;
+	}
+}
+
+/*# sourceMappingURL=homepage.1303bb05.css.map */

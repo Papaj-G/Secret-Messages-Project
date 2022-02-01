@@ -64,7 +64,7 @@ export function encryptUsingReverse(message) {
 		.map((word) => reverseString(word))
 		.join(" ");
 }
-export function encryptUsingMorseCode2(message) {
+export function encryptUsingMorseCodeV2(message) {
 	return message
 		.split(" ")
 		.map((word) =>

@@ -1,23 +1,56 @@
-h1 {
-	border: 2px solid powderblue;
-	padding: 5px;
-	border-radius: 2em;
+/* fonts */
+h1,
+textarea,
+label,
+input,
+legend {
+	font-family: "Courier New", Courier, monospace;
 }
-p {
-	border: 2px solid powderblue;
-	padding: 5px;
-	border-radius: 2em;
+
+/* Margins */
+input,
+textarea,
+fieldset,
+button,
+label,
+legend {
+	margin: 5px;
 }
+/* Size */
 div {
-	display: block;
+	width: 100%;
 }
-select {
-	border: 2px solid powderblue;
-	padding: 5px;
-	border-radius: 2em;
+fieldset {
+	width: 75%;
 }
-label {
-	border: 2px solid powderblue;
-	padding: 5px;
-	border-radius: 2em;
+button {
+	margin-top: 13px;
+	width: 25%;
+}
+
+.row,
+.column {
+	display: flex;
+}
+.row {
+	flex-direction: row;
+}
+.column {
+	flex-direction: column;
+}
+@media screen and (max-width: 480px) {
+	.row {
+		flex-direction: column;
+	}
+	textarea {
+		height: fit-content;
+		width: auto;
+	}
+	fieldset {
+		width: auto;
+	}
+	button {
+		width: 100%;
+		align-self: baseline;
+	}
 }
